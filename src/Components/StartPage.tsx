@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useState } from "react";
 import { LessonPlanType } from "../Types";
 import "../ComponentsCSS/StartPage.css";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { MenuItem, Select, TextField, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -178,10 +179,8 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
         </div>
         <div className="generate-button">
           <div onClick={() => handleClick()}>Generate Lesson</div>
-          <img
-            className="gemini-logo"
-            src="src/assets/Google-Gemini-Logo-Transparent.png"
-          />
+
+          <AutoAwesomeIcon className="gemini-logo" />
         </div>
       </div>
     </div>
