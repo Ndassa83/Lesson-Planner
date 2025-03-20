@@ -29,6 +29,9 @@ function App() {
   ]);
   const [responseAssessment, setResponseAssessment] = useState<string>("");
   const [responseConclusion, setResponseConclusion] = useState("");
+  const [name, setName] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [date, setDate] = useState<string>(new Date().toDateString());
 
   useEffect(() => {
     if (response) {
@@ -68,6 +71,12 @@ function App() {
               setResponseAssessment={setResponseAssessment}
               responseConclusion={responseConclusion}
               setResponseConclusion={setResponseConclusion}
+              name={name}
+              setName={setName}
+              subject={subject}
+              setSubject={setSubject}
+              date={date}
+              setDate={setDate}
             />
           }
         />
@@ -83,6 +92,9 @@ function App() {
               responseInstructions={responseInstructions}
               responseAssessment={responseAssessment}
               responseConclusion={responseConclusion}
+              name={name}
+              subject={subject}
+              date={date}
             />
           }
         />

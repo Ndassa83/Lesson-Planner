@@ -22,6 +22,12 @@ type LessonPlanProps = {
   setResponseAssessment: React.Dispatch<React.SetStateAction<string>>;
   responseConclusion: string;
   setResponseConclusion: React.Dispatch<React.SetStateAction<string>>;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  setDate: React.Dispatch<React.SetStateAction<string>>;
+  setSubject: React.Dispatch<React.SetStateAction<string>>;
+  name: string;
+  subject: string;
+  date: string;
 };
 
 export const LessonPlan = ({
@@ -41,12 +47,50 @@ export const LessonPlan = ({
   setResponseAssessment,
   responseConclusion,
   setResponseConclusion,
+  date,
+  setDate,
+  name,
+  setName,
+  subject,
+  setSubject,
 }: LessonPlanProps) => {
   const navigate = useNavigate();
   return (
     <div className="lesson-plan-container">
       <div className="lesson-input-container">
-        <div className="header">Title:</div>
+        <div className="name-date-subject">
+          <TextField
+            className="name-date-subject-elements"
+            id="Name"
+            label="Name"
+            variant="standard"
+            value={name}
+            size="small"
+            margin="dense"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            className="name-date-subject-elements"
+            id="Subject"
+            label="Subject"
+            variant="standard"
+            value={subject}
+            size="small"
+            margin="dense"
+            onChange={(e) => setSubject(e.target.value)}
+          />{" "}
+          <TextField
+            className="name-date-subject-elements"
+            id="Date"
+            label="Date"
+            variant="standard"
+            value={date}
+            size="small"
+            margin="dense"
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+        <div className="header">Title</div>
         <TextField
           className="inputs"
           value={responseTitle}
@@ -55,7 +99,7 @@ export const LessonPlan = ({
           multiline
           onChange={(e) => setResponseTitle(e.target.value)}
         />
-        <div className="header">Summary:</div>
+        <div className="header">Summary</div>
         <TextField
           className="inputs"
           size="small"
@@ -75,7 +119,7 @@ export const LessonPlan = ({
           value={responseIntro}
           onChange={(e) => setResponseIntro(e.target.value)}
         />
-        <div className="header">Learning Objectives:</div>{" "}
+        <div className="header">Learning Objectives</div>{" "}
         {responseObjectives.map((objective, index) => {
           return (
             <div className="input-bullet-container">
@@ -117,7 +161,7 @@ export const LessonPlan = ({
           <AddCircleOutlineIcon />
           <div className="footer">Add Objective</div>
         </div>
-        <div className="header">Materials Needed:</div>
+        <div className="header">Materials Needed</div>
         {responseMaterials.map((material, index) => {
           return (
             <div className="input-bullet-container">
@@ -155,9 +199,9 @@ export const LessonPlan = ({
           className="add-row"
         >
           <AddCircleOutlineIcon />
-          <div className="footer">Material</div>
+          <div className="footer">Add Material</div>
         </div>
-        <div className="header">Instructions:</div>
+        <div className="header">Instructions</div>
         {responseInstructions.map((instruction, index) => {
           return (
             <div className="input-bullet-container">
@@ -199,7 +243,7 @@ export const LessonPlan = ({
           <AddCircleOutlineIcon />
           <div className="footer">Add Step</div>
         </div>
-        <div className="header">Assignment/Assessment:</div>
+        <div className="header">Assignment/Assessment</div>
         <TextField
           className="inputs"
           size="small"
@@ -209,7 +253,7 @@ export const LessonPlan = ({
           value={responseAssessment}
           onChange={(e) => setResponseAssessment(e.target.value)}
         />
-        <div className="header">Conclusion:</div>
+        <div className="header">Conclusion</div>
         <TextField
           className="inputs"
           size="small"

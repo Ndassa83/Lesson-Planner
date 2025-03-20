@@ -1,6 +1,9 @@
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 
 type PDFDocumentProps = {
+  name: string;
+  subject: string;
+  date: string;
   responseTitle: string;
   responseSummary: string;
   responseIntro: string;
@@ -11,12 +14,19 @@ type PDFDocumentProps = {
   responseConclusion: string;
 };
 
-// PDF styles with an elegant and structured look
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "white",
     padding: 40,
     fontFamily: "Helvetica",
+  },
+  header: {
+    position: "absolute",
+    top: 15,
+    left: 15,
+    fontSize: 8,
+    color: "#555",
+    lineHeight: 1,
   },
   container: {
     width: "100%",
@@ -60,6 +70,9 @@ const styles = StyleSheet.create({
 });
 
 const PDFDocument = ({
+  name,
+  subject,
+  date,
   responseTitle,
   responseSummary,
   responseIntro,
@@ -71,6 +84,12 @@ const PDFDocument = ({
 }: PDFDocumentProps) => (
   <Document>
     <Page size="A4" style={styles.page}>
+      <View style={styles.header}>
+        <Text>Name: {name}</Text>
+        <Text>Subject: {subject}</Text>
+        <Text>Date: {date}</Text>
+      </View>
+
       <View style={styles.container}>
         <Text style={styles.title}>{responseTitle}</Text>
 

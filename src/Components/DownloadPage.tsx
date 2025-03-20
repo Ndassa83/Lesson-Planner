@@ -11,6 +11,9 @@ type DownloadPageProps = {
   responseInstructions: string[];
   responseAssessment: string;
   responseConclusion: string;
+  name: string;
+  subject: string;
+  date: string;
 };
 
 export const DownloadPage = (props: DownloadPageProps) => {

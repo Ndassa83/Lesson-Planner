@@ -3,14 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   width: 100%;
   background: linear-gradient(
     rgb(245, 250, 255) 1.50267%,
     rgb(230, 244, 255) 53.7532%,
     rgb(255, 255, 255) 100%
   );
-  padding: 40px 0px;
+  /* padding: 40px 0px; */
 }
 
 .start-input-container {
@@ -19,13 +18,13 @@
   align-items: center;
   justify-content: center;
   height: auto;
-  min-width: 500px;
+  min-width: 50%;
   border: 1px solid rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
   border-radius: 6px;
   box-shadow: rgba(193, 200, 205, 0.4) 2px 4px 4px 2px;
-  margin-top: 40px;
   padding: 20px;
+  margin: 75px 0;
 }
 
 .gemini-logo {
@@ -35,12 +34,14 @@
 }
 
 .generate-button {
+  all: unset;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-items: center;
   background-color: #aaaaaa6c;
   padding: 0.5rem;
+  border-color: #aaaaaa6c;
   border-radius: 7px;
   cursor: pointer;
   margin: 10px;
@@ -81,9 +82,9 @@
   margin-bottom: 20px;
 }
 .circular-progress-bar {
-  position: absolute;
+  position: sticky;
   top: 50%;
-  left: 49%;
+  left: 45%;
   transform: translate(-50%, -50%);
   z-index: 10;
 }

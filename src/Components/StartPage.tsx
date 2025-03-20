@@ -155,6 +155,17 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
           />
         </div>
         <div className="start-header">
+          Lesson Length
+          <TextField
+            className="inputs length"
+            size="small"
+            margin="dense"
+            multiline
+            value={lengthToComplete}
+            onChange={(e) => setLengthToComplete(e.target.value)}
+          />
+        </div>
+        <div className="start-header">
           Additional Info
           <TextField
             className="inputs"
@@ -166,22 +177,15 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
             onChange={(e) => setAdditionalInfo(e.target.value)}
           />
         </div>
-        <div className="start-header">
-          Lesson Length
-          <TextField
-            className="inputs length"
-            size="small"
-            margin="dense"
-            multiline
-            value={lengthToComplete}
-            onChange={(e) => setLengthToComplete(e.target.value)}
-          />
-        </div>
-        <div className="generate-button">
-          <div onClick={() => handleClick()}>Generate Lesson</div>
 
+        <button
+          disabled={isLoading}
+          onClick={() => handleClick()}
+          className="generate-button"
+        >
+          <div>Generate Lesson</div>
           <AutoAwesomeIcon className="gemini-logo" />
-        </div>
+        </button>
       </div>
     </div>
   );
