@@ -3,7 +3,14 @@ import { useState } from "react";
 import { LessonPlanType } from "../Types";
 import "../ComponentsCSS/StartPage.css";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import { MenuItem, Select, TextField, CircularProgress } from "@mui/material";
+import {
+  MenuItem,
+  Select,
+  TextField,
+  CircularProgress,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 type StartPageProps = {
@@ -84,45 +91,41 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
     <div className="start-page-container">
       {isLoading && <CircularProgress className="circular-progress-bar" />}
       <div className="start-input-container">
-        <div className="create-header">Lesson Plan </div>
+        <div className="create-header">Create Lesson Plan </div>
         <div className="create-subheader">
-          Create a Tailored Lesson Plan in Seconds for any subject
+          Effortlessly generate a customized lesson plan for any subject—just
+          add a title. Include more details to further tailor the results.
         </div>
         <div className="start-header">
-          Grade
-          <Select
-            value={gradeLevel}
-            className="inputs grade"
-            size="small"
-            margin="dense"
-            label="Grade Level"
-            onChange={(e) => setGradeLevel(e.target.value)}
-          >
-            <MenuItem value={"Pre-K"}>Pre-K</MenuItem>
-            <MenuItem value={"Kindergarten"}>Kindergarten</MenuItem>
-            <MenuItem value={"1"}>1st</MenuItem>
-            <MenuItem value={"2"}>2nd</MenuItem>
-            <MenuItem value={"3"}>3rd</MenuItem>
-            <MenuItem value={"4"}>4th</MenuItem>
-            <MenuItem value={"5"}>5th</MenuItem>
-            <MenuItem value={"6"}>6th</MenuItem>
-            <MenuItem value={"7"}>7th</MenuItem>
-            <MenuItem value={"8"}>8th</MenuItem>
-            <MenuItem value={"9"}>9th</MenuItem>
-            <MenuItem value={"10"}>10th</MenuItem>
-            <MenuItem value={"11"}>11th</MenuItem>
-            <MenuItem value={"12"}>12th</MenuItem>
-            <MenuItem value={"College Freshman"}>College Freshman</MenuItem>
-            <MenuItem value={"College Sophomore"}>College Sophomore</MenuItem>
-            <MenuItem value={"College Junior"}>College Junior</MenuItem>
-            <MenuItem value={"College Senior"}>College Senior</MenuItem>
-            <MenuItem value={"Graduate Student"}>Graduate Student</MenuItem>
-          </Select>
+          Age Range
+          <FormControl size="small" margin="dense" className="inputs">
+            <InputLabel>Age Range</InputLabel>
+            <Select
+              value={gradeLevel}
+              onChange={(e) => setGradeLevel(e.target.value)}
+              displayEmpty
+            >
+              <MenuItem value="Infants (0-12 months)">
+                Infants (0-12 months)
+              </MenuItem>
+              <MenuItem value="Toddlers (1-2 years)">
+                Toddlers (1-2 years)
+              </MenuItem>
+              <MenuItem value="Preschool (3-4 years)">
+                Preschool (3-4 years)
+              </MenuItem>
+              <MenuItem value="Pre-K (4-5 years)">Pre-K (4-5 years)</MenuItem>
+              <MenuItem value="Kindergarten (5-6 years)">
+                Kindergarten (5-6 years)
+              </MenuItem>
+            </Select>
+          </FormControl>
         </div>
         <div className="start-header">
           Lesson Title
           <TextField
             className="inputs"
+            placeholder="Enter the lesson title"
             size="small"
             margin="dense"
             multiline
@@ -135,6 +138,7 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
           <TextField
             minRows={2}
             className="inputs"
+            placeholder="Provide subject-specific information"
             size="small"
             margin="dense"
             multiline
@@ -146,6 +150,7 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
           Assessment
           <TextField
             className="inputs"
+            placeholder="Determine the Assessment or Assignment"
             minRows={2}
             size="small"
             margin="dense"
@@ -158,9 +163,9 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
           Lesson Length
           <TextField
             className="inputs length"
+            placeholder="Lesson length"
             size="small"
             margin="dense"
-            multiline
             value={lengthToComplete}
             onChange={(e) => setLengthToComplete(e.target.value)}
           />
@@ -169,6 +174,7 @@ summary: "give a concise summary of the lesson as well as how it will be evaluat
           Additional Info
           <TextField
             className="inputs"
+            placeholder="Include any extra details or notes"
             minRows={2}
             size="small"
             margin="dense"

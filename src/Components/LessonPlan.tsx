@@ -58,10 +58,16 @@ export const LessonPlan = ({
   return (
     <div className="lesson-plan-container">
       <div className="lesson-input-container">
+        <div className="create-header">Edit and Refine</div>
+        <div className="create-subheader">
+          Modify entries, adjust objectives, materials, or steps, and finalize
+          your lesson plan for download.
+        </div>
         <div className="name-date-subject">
           <TextField
             className="name-date-subject-elements"
             id="Name"
+            placeholder="Name"
             label="Name"
             variant="standard"
             value={name}
@@ -72,6 +78,7 @@ export const LessonPlan = ({
           <TextField
             className="name-date-subject-elements"
             id="Subject"
+            placeholder="Subject"
             label="Subject"
             variant="standard"
             value={subject}
@@ -82,6 +89,7 @@ export const LessonPlan = ({
           <TextField
             className="name-date-subject-elements"
             id="Date"
+            placeholder="Date"
             label="Date"
             variant="standard"
             value={date}
@@ -93,6 +101,7 @@ export const LessonPlan = ({
         <div className="header">Title</div>
         <TextField
           className="inputs"
+          placeholder="Enter the lesson title."
           value={responseTitle}
           size="small"
           margin="dense"
@@ -102,6 +111,7 @@ export const LessonPlan = ({
         <div className="header">Summary</div>
         <TextField
           className="inputs"
+          placeholder="Provide a brief lesson overview."
           size="small"
           margin="dense"
           minRows={2}
@@ -112,6 +122,7 @@ export const LessonPlan = ({
         <div className="header">Introduction:</div>
         <TextField
           className="inputs"
+          placeholder="Write a short lesson introduction."
           size="small"
           margin="dense"
           minRows={2}
@@ -128,6 +139,7 @@ export const LessonPlan = ({
               <TextField
                 className="inputs"
                 key={index}
+                placeholder={`Objective ${(index + 1).toString()}`}
                 size="small"
                 margin="dense"
                 multiline
@@ -167,6 +179,7 @@ export const LessonPlan = ({
             <div className="input-bullet-container">
               <CircleIcon className="circle-icon" />
               <TextField
+                placeholder={`Material ${(index + 1).toString()}`}
                 size="small"
                 margin="dense"
                 className="inputs"
@@ -210,6 +223,7 @@ export const LessonPlan = ({
               <TextField
                 className="inputs"
                 key={index}
+                placeholder={`Step ${(index + 1).toString()}`}
                 size="small"
                 margin="dense"
                 minRows={2}
@@ -247,6 +261,7 @@ export const LessonPlan = ({
         <TextField
           className="inputs"
           size="small"
+          placeholder="Describe the task or evaluation method."
           margin="dense"
           multiline
           minRows={2}
@@ -257,6 +272,7 @@ export const LessonPlan = ({
         <TextField
           className="inputs"
           size="small"
+          placeholder="Summarize key takeaways from the lesson."
           margin="dense"
           multiline
           minRows={2}

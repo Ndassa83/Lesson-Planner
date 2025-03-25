@@ -10,8 +10,7 @@
   height: 48px;
   border-bottom-width: 1px;
   border-top-right-radius: 2px;
-  border-color: rgb(242, 244, 247);
-  border-style: solid;
+  border-color: #d1dce5;
   border-top-width: 0px;
   background-color: #ffffff;
   cursor: pointer;
@@ -27,17 +26,20 @@
   height: 100%;
   transition: background-color 0.3s ease, cursor 0.3s ease;
   cursor: pointer;
+  font-size: 14px;
 }
 .navbar-element:hover {
-  background-color: rgb(233, 243, 253);
+  background-color: #c1e1ff;
   cursor: pointer;
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
 }
 
 .navbar-element.active {
-  background-color: rgb(199, 223, 247);
+  background-color: #007acc;
   font-weight: bold;
+  color: white;
+
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
 }
